@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const connectDB = async () => {
   try {
     const connection = await mongoose.connect(
-      "mongodb+srv://babapadu:babapadu@cluster0.qkmr5.mongodb.net/?retryWrites=true&w=majority",
+      "mongodb+srv://babapadu:babapadu@cluster0.qkmr5.mongodb.net/expense-tracker-react",
       { useNewUrlParser: true, useUnifiedTopology: true }
     );
 

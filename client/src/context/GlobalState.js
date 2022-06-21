@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from './AppReducer'
-import axios from 'axios';
+import {axiosInstance} from '../config';
 
 const intialState = {
   transactions: [],
@@ -20,7 +20,7 @@ export const GlobalProvider = ({ children }) => {
 // get Transactions
 async function GetTransactions(){
   try {
-  const res = await axios.get('/api/transactions')
+  const res = await axiosInstance.get('/api/transactions')
 
   dispatch({
     type: 'GET_TRANSACTIONS',
@@ -42,7 +42,7 @@ const config = {
   }
 }
 try {
-  const res = await axios.post('/api/transactions' , transaction , config)
+  const res = await axiosInstance.post('/api/transactions' , transaction , config)
   dispatch({
     type : 'AddTransaction',
     payload: res.data.data
